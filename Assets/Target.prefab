@@ -112,6 +112,7 @@ MonoBehaviour:
   hit_effect: {fileID: 8676317037938528902, guid: 599533bb5bb1b1c4c854c9d21287ed10, type: 3}
   target_lifetime: 3
   scoreBoard: {fileID: 8669946738235218968, guid: fca6830dc2e1c6b4d9d758ab7fa4e60e, type: 3}
+  TargetSpawner: {fileID: 8188890730474289123, guid: ea1142f3569d9b24685cc4817c360088, type: 3}
 --- !u!114 &1447639534247936383
 MonoBehaviour:
   m_ObjectHideFlags: 0

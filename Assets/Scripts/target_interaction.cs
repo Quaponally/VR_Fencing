@@ -7,6 +7,7 @@ public class target_interaction : MonoBehaviour
     public GameObject hit_effect;
     public float target_lifetime = 3f;
     public GameObject scoreBoard;
+    public GameObject TargetSpawner;
 
     float lifetime;
 
@@ -37,7 +38,16 @@ public class target_interaction : MonoBehaviour
         Debug.Log("Target Collided");
         Instantiate(hit_effect, transform.position, transform.rotation);
         Destroy(gameObject);
-        scoreBoard.GetComponent<scoreCounter>().changeScore(1);
+
+        if(transform.position.z == TargetSpawner.GetComponent<TargetSpawner>().static_distance)
+        {
+            scoreBoard.GetComponent<scoreCounter>().changeScore(1);
+        }
+        else
+        {
+            scoreBoard.GetComponent<scoreCounter>().changeScore(5);
+        }
+        
     }
  
 }

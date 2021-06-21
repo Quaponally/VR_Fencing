@@ -12,8 +12,8 @@ public class TargetSpawner : MonoBehaviour
     public float y_lower = 1f;
     public float x_upper = 0.3f;
     public float x_lower = -0.3f;
-    public float static_distance = 2f;
-    public float lunge_distance = 2.5f;
+    public float static_distance = 1.5f;
+    public float lunge_distance = 2f;
     public int max_targets = 3;
     public float target_spawn_interval = 0.5f;
 
@@ -35,11 +35,11 @@ public class TargetSpawner : MonoBehaviour
     void Update()
     {
         roundTime = RoundTimer.GetComponent<timeCounter>().roundTime;
-        Debug.Log(roundTime);
+        //Debug.Log(roundTime);
         if(roundTime > 0)
         {
             target_timer -= Time.deltaTime;
-            if(!maxTargets() && target_timer <= 0)
+            if(!maxTargets(transform.position, 1f, max_targets) && target_timer <= 0)
             {
                 spawnTarget();
                 target_timer = target_spawn_interval;
@@ -65,6 +65,11 @@ public class TargetSpawner : MonoBehaviour
         // randomise location
         Vector3 location;
         location = new Vector3(Random.Range(x_lower, x_upper), Random.Range(y_lower, y_upper), z_dist);
+        // make sure location don't overlap
+        while(maxTargets(location, 0.2f, 1))
+        {
+            location = new Vector3(Random.Range(x_lower, x_upper), Random.Range(y_lower, y_upper), z_dist);
+        }
 
         // spawn target , new Quaternion(0, 90, 0, 1)
         Instantiate(target, location, transform.rotation);
@@ -72,10 +77,10 @@ public class TargetSpawner : MonoBehaviour
     }
 
     // check number of targets in existence 
-    bool maxTargets()
+    bool maxTargets(Vector3 location, float radius, int max_targets)
     {
         // get nearby game objects within 1u of spawner
-        Collider[] nearby_objects = Physics.OverlapSphere(transform.position, 1f);
+        Collider[] nearby_objects = Physics.OverlapSphere(location, radius);
 
         if(nearby_objects.Length < max_targets)
         {
