@@ -14,6 +14,9 @@ public class timeCounter : MonoBehaviour
     private float minutes = 3f;
     private float seconds = 0f;
 
+    public GameObject GameOverUI;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,5 +33,11 @@ public class timeCounter : MonoBehaviour
         seconds = roundTime % 60f; 
         
         timeText.text = Math.Floor(minutes).ToString("F0") + ":" + ((int)seconds).ToString("D2");
+
+        if(roundTime <= 0f)
+        {
+            
+            GameOverUI.SetActive(true);
+        }
     }
 }

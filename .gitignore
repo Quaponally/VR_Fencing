@@ -4,3 +4,5 @@
 /Temp
 /UserSettings
 *.meta
+*.exe
+/Build

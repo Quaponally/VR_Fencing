@@ -8,6 +8,7 @@ public class target_interaction : MonoBehaviour
     public float target_lifetime = 3f;
     public GameObject scoreBoard;
     public GameObject TargetSpawner;
+    
 
     float lifetime;
 
@@ -21,7 +22,7 @@ public class target_interaction : MonoBehaviour
     void Update()
     {
         lifetime -= Time.deltaTime;
-        if(lifetime <= 0 )
+        if(lifetime <= 0)
         {
             Destroy(gameObject);
         }
@@ -35,7 +36,7 @@ public class target_interaction : MonoBehaviour
 
     void targetHit()
     {
-        Debug.Log("Target Collided");
+        //Debug.Log("Target Collided");
         Instantiate(hit_effect, transform.position, transform.rotation);
         Destroy(gameObject);
 

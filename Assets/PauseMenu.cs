@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
+
 public class PauseMenu : MonoBehaviour
 {
     public static bool isPaused = false;
@@ -16,7 +17,7 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         // controller = GetComponent<ActionBasedController>();
-        pauseReference.action.performed += pauseButton;
+        pauseReference.action.started += context => pauseButton();
     }
 
     // Update is called once per frame
@@ -26,11 +27,12 @@ public class PauseMenu : MonoBehaviour
         
         //get key press
         // controller.selectAction.action.performed += test;
+        //InputAction.CallbackContext context
         
     }
 
 
-    void pauseButton(InputAction.CallbackContext context)
+    void pauseButton()
     {
         Debug.Log("paused");
         if(isPaused)

@@ -25,6 +25,9 @@ public class TargetSpawner : MonoBehaviour
     float target_timer = 0f;
     float roundTime;
 
+    private GameObject[] targets;
+    private GameObject old_target;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +49,16 @@ public class TargetSpawner : MonoBehaviour
             }
             
         }
+        // else
+        // {
+        //     // get all targets
+        //     targets = GameObject.FindGameObjectsWithTag("target");
+        //     foreach (GameObject old_target in targets)
+        //     {
+        //         //DestroyImmediate(target, true);
+        //         Destroy(target.GetComponent<MeshRenderer>());
+        //     }
+        // }
     }
 
     void spawnTarget()
