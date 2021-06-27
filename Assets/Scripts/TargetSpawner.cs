@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class TargetSpawner : MonoBehaviour
 {
-    // target prefab
+    // target prefabs
     public GameObject target;
+    public GameObject parry_target;
 
     // target settings
     public float y_upper = 1.75f;
@@ -16,6 +17,11 @@ public class TargetSpawner : MonoBehaviour
     public float lunge_distance = 2f;
     public int max_targets = 3;
     public float target_spawn_interval = 0.5f;
+    public float parry_dist = 1.3f;
+    public float parry_y_upper = 1.6f;
+    public float parry_y_lower = 1.2f;
+    public float parry_x_upper = 0.2f;
+    public float parry_x_lower = -0.2f;
 
     // round settings
     public bool lunge_enabled = true;
@@ -63,6 +69,36 @@ public class TargetSpawner : MonoBehaviour
 
     void spawnTarget()
     {
+        if(Random.value > 0.3)
+        {
+            stabTarget();
+        }
+        else
+        {
+            parryTarget();
+        }
+
+    }
+
+    // check number of targets in existence 
+    bool maxTargets(Vector3 location, float radius, int max_targets)
+    {
+        // get nearby game objects within 1u of spawner
+        Collider[] nearby_objects = Physics.OverlapSphere(location, radius);
+
+        if(nearby_objects.Length < max_targets)
+        {
+            return false;
+        }
+        else 
+        {
+            return true;
+        }
+
+    }
+
+    void stabTarget()
+    {
         // lunge or static selection
         float z_dist;
 
@@ -86,26 +122,15 @@ public class TargetSpawner : MonoBehaviour
 
         // spawn target , new Quaternion(0, 90, 0, 1)
         Instantiate(target, location, transform.rotation);
-
     }
 
-    // check number of targets in existence 
-    bool maxTargets(Vector3 location, float radius, int max_targets)
+    void parryTarget()
     {
-        // get nearby game objects within 1u of spawner
-        Collider[] nearby_objects = Physics.OverlapSphere(location, radius);
-
-        if(nearby_objects.Length < max_targets)
-        {
-            return false;
-        }
-        else 
-        {
-            return true;
-        }
+        // randomise location
+        Vector3 location;
+        location = new Vector3(Random.Range(parry_x_lower, parry_x_upper), Random.Range(parry_y_lower, parry_y_upper), parry_dist);
+        Instantiate(parry_target, location, transform.rotation);
 
     }
-
-    
 
 }

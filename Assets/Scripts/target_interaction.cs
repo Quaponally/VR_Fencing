@@ -6,16 +6,18 @@ public class target_interaction : MonoBehaviour
 {
     public GameObject hit_effect;
     public float target_lifetime = 3f;
-    public GameObject scoreBoard;
+    GameObject scoreBoard;
     public GameObject TargetSpawner;
     
-
+    AudioSource pop_sound;
     float lifetime;
 
     // Start is called before the first frame update
     void Start()
     {
         lifetime = target_lifetime;
+        pop_sound = GameObject.Find("PopSound").GetComponent<AudioSource>();
+        scoreBoard = GameObject.Find("ScoreBoard");
     }
 
     // Update is called once per frame
@@ -38,6 +40,8 @@ public class target_interaction : MonoBehaviour
     {
         //Debug.Log("Target Collided");
         Instantiate(hit_effect, transform.position, transform.rotation);
+        //AudioSource.PlayClipAtPoint(pop_sound.GetComponent<AudioClip>(), transform.position, 1f);
+        pop_sound.Play();
         Destroy(gameObject);
 
         if(transform.position.z == TargetSpawner.GetComponent<TargetSpawner>().static_distance)
