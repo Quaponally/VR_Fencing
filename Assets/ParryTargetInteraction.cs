@@ -42,7 +42,7 @@ public class ParryTargetInteraction : MonoBehaviour
     {
         if(lifetime <= target_lifetime - delay)
         {
-            target_rb.AddForce(-transform.up * force);
+            target_rb.AddForce(transform.up * force);
         }
         
     }

@@ -126,10 +126,10 @@ public class TargetSpawner : MonoBehaviour
 
     void parryTarget()
     {
-        // randomise location
+        // randomise location Quaternion.AngleAxis( 180, transform.up ) 
         Vector3 location;
         location = new Vector3(Random.Range(parry_x_lower, parry_x_upper), Random.Range(parry_y_lower, parry_y_upper), parry_dist);
-        Instantiate(parry_target, location, transform.rotation);
+        Instantiate(parry_target, location, new Quaternion(-1, 0, 0, 1));
 
     }
 

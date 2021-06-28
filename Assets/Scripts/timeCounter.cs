@@ -15,14 +15,21 @@ public class timeCounter : MonoBehaviour
     private float seconds = 0f;
 
     public GameObject GameOverUI;
+
+    AudioSource bell_sound;
     
+    void Awake()
+    {
+        roundTime = roundLength;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        roundTime = roundLength;
+        
         //timeText.text = roundTime.ToString("F0") + " s";
         timeText.text = minutes.ToString("F0") + ":" + seconds.ToString("F0");
+        bell_sound = GameObject.Find("BellSound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -36,7 +43,7 @@ public class timeCounter : MonoBehaviour
 
         if(roundTime <= 0f)
         {
-            
+            bell_sound.Play();
             GameOverUI.SetActive(true);
         }
     }
