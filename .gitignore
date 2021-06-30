@@ -7,3 +7,8 @@
 *.cs.meta
 *.exe
 /Build
+/Assets/_TerrainAutoUpgrade
+/Assets/ExampleAssets
+/Assets/Fantasy Forest Environment Free Sample
+/Assets/Thirdparty
+/Assets/TutorialInfo
