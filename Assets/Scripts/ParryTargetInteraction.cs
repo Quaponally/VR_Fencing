@@ -69,7 +69,7 @@ public class ParryTargetInteraction : MonoBehaviour
         Instantiate(hit_effect, transform.position, transform.rotation);
         if(!TargetHit)
         {
-            scoreBoard.GetComponent<scoreCounter>().changeScore(15);
+            scoreBoard.GetComponent<scoreCounter>().changeScore(5);
             TargetHit = true;
         }
         

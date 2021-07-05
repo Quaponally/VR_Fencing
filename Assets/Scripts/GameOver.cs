@@ -17,7 +17,7 @@ public class GameOver : MonoBehaviour
     {
         //script = ScoreBoard.GetComponent<scoreCounter>();
         score = scoreCounter.score;
-        ScoreUI.SetActive(false);
+        //ScoreUI.SetActive(false);
         scoreText.text = "Score: " + score.ToString();
     }
 

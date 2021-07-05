@@ -38,13 +38,15 @@ public class timeCounter : MonoBehaviour
         roundTime -= Time.deltaTime;
         minutes = roundTime/60f;
         seconds = roundTime % 60f; 
-        
-        timeText.text = Math.Floor(minutes).ToString("F0") + ":" + ((int)seconds).ToString("D2");
 
-        if(roundTime <= 0f)
+        if(roundTime < 0f)
         {
             bell_sound.Play();
             GameOverUI.SetActive(true);
+        }
+        else 
+        {
+            timeText.text = Math.Floor(minutes).ToString("F0") + ":" + ((int)seconds).ToString("D2");
         }
     }
 }
