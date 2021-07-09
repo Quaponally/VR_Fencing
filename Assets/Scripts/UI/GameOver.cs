@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
     public Text scoreText;
+    public Text HighscoreText;
     float score;
+    float highscore;
 
     // public GameObject ScoreBoard;
     public scoreCounter ScoreCounter;
@@ -15,10 +17,14 @@ public class GameOver : MonoBehaviour
 
     void Awake()
     {
-        //script = ScoreBoard.GetComponent<scoreCounter>();
+        GlobalControl.Instance.SaveScore();
+        highscore = GlobalControl.Instance.highscore;
+
+        
         score = scoreCounter.score;
-        //ScoreUI.SetActive(false);
+        
         scoreText.text = "Score: " + score.ToString();
+        HighscoreText.text = "Highscore: " + highscore.ToString();
     }
 
     public void PlayAgain()

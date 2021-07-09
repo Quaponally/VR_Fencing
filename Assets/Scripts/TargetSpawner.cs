@@ -24,7 +24,7 @@ public class TargetSpawner : MonoBehaviour
     public float parry_x_lower = -0.2f;
 
     // round settings
-    public bool lunge_enabled = true;
+    public bool lunge_enabled;
     public GameObject RoundTimer;
 
     // script variables
@@ -37,7 +37,7 @@ public class TargetSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        lunge_enabled = GlobalControl.Instance.LungeMode;
     }
 
     // Update is called once per frame
