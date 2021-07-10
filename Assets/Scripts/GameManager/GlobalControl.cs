@@ -5,8 +5,8 @@ using UnityEngine;
 public class GlobalControl : MonoBehaviour
 {
     // saved variables
-    public int score;
-    public int highscore = 0;
+    public float score;
+    public float highscore = 0.0f;
     public bool LungeMode = true;
 
     
@@ -30,7 +30,7 @@ public class GlobalControl : MonoBehaviour
         // assign any variables 
     }
 
-    public void SaveScore()
+    public void SaveScore(float score)
     {
         GlobalControl.Instance.score = score;
         if(score > highscore)

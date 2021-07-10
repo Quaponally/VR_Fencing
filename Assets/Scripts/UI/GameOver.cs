@@ -16,12 +16,10 @@ public class GameOver : MonoBehaviour
     public GameObject ScoreUI;
 
     void Awake()
-    {
-        GlobalControl.Instance.SaveScore();
-        highscore = GlobalControl.Instance.highscore;
-
-        
+    {        
         score = scoreCounter.score;
+        GlobalControl.Instance.SaveScore(score);
+        highscore = GlobalControl.Instance.highscore;
         
         scoreText.text = "Score: " + score.ToString();
         HighscoreText.text = "Highscore: " + highscore.ToString();
