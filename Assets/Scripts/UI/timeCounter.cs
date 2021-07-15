@@ -17,10 +17,32 @@ public class timeCounter : MonoBehaviour
     public GameObject GameOverUI;
 
     AudioSource bell_sound;
+    AudioSource en_garde;
+    AudioSource pret;
+    AudioSource alle;
+
+    public bool start = true;
+    //bool played_en_garde = false;
+    bool played_pret = false;
+    bool played_alle = false;
+    float start_timer = 3f;
+    bool round_over = false;
+
     
     void Awake()
     {
+        en_garde = GameObject.Find("en garde").GetComponent<AudioSource>();
+        pret = GameObject.Find("pret").GetComponent<AudioSource>();
+        alle = GameObject.Find("alle").GetComponent<AudioSource>();
+
+        en_garde.Play();
+        //played_en_garde = true;
+
+        // set clock timer
         roundTime = roundLength;
+        minutes = roundTime/60f;
+        seconds = roundTime % 60f;
+        timeText.text = Math.Floor(minutes).ToString("F0") + ":" + ((int)seconds).ToString("D2");
     }
 
     // Start is called before the first frame update
@@ -28,25 +50,47 @@ public class timeCounter : MonoBehaviour
     {
         
         //timeText.text = roundTime.ToString("F0") + " s";
-        timeText.text = minutes.ToString("F0") + ":" + seconds.ToString("F0");
+        //timeText.text = minutes.ToString("F0") + ":" + seconds.ToString("F0");
         bell_sound = GameObject.Find("BellSound").GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        roundTime -= Time.deltaTime;
-        minutes = roundTime/60f;
-        seconds = roundTime % 60f; 
+        // normal timer calculation and UI update
+        if(!start)
+        {
+            roundTime -= Time.deltaTime;
+            minutes = roundTime/60f;
+            seconds = roundTime % 60f; 
 
-        if(roundTime < 0f)
-        {
-            bell_sound.Play();
-            GameOverUI.SetActive(true);
+            if(roundTime < 0f && !round_over)
+            {
+                bell_sound.Play();
+                GameOverUI.SetActive(true);
+                round_over = true;
+            }
+            else if(roundTime > 0f)
+            {
+                timeText.text = Math.Floor(minutes).ToString("F0") + ":" + ((int)seconds).ToString("D2");
+            }
         }
-        else 
+        // play sounds during start sequence
+        else
         {
-            timeText.text = Math.Floor(minutes).ToString("F0") + ":" + ((int)seconds).ToString("D2");
+            start_timer -= Time.deltaTime;
+            if(start_timer <= 0f && !played_alle) 
+            {
+                alle.Play();
+                start = false;
+                played_alle = true;
+            }
+            else if(start_timer <= 1f && !played_pret)
+            {
+                pret.Play();
+                played_pret = true;
+            }
         }
     }
 }

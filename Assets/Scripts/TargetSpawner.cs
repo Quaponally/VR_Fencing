@@ -30,6 +30,7 @@ public class TargetSpawner : MonoBehaviour
     // script variables
     float target_timer = 0f;
     float roundTime;
+    bool start;
 
     private GameObject[] targets;
     private GameObject old_target;
@@ -37,15 +38,29 @@ public class TargetSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lunge_enabled = GlobalControl.Instance.LungeMode;
+        Debug.Log("Pre check TS: " + lunge_enabled.ToString());
+        Debug.Log(PlayerPrefs.GetString("lunge_enabled", "true"));
+        string stored_data = PlayerPrefs.GetString("lunge_enabled", "true");
+
+        if(stored_data == "true")
+        {
+            lunge_enabled = true;
+        }
+        else{
+            lunge_enabled = false;
+        }
+
+        Debug.Log(PlayerPrefs.GetString("lunge_enabled", "true"));
+        Debug.Log("Post check TS: " + lunge_enabled.ToString());
     }
 
     // Update is called once per frame
     void Update()
     {
         roundTime = RoundTimer.GetComponent<timeCounter>().roundTime;
+        start = RoundTimer.GetComponent<timeCounter>().start;
         //Debug.Log(roundTime);
-        if(roundTime > 0)
+        if(roundTime > 0 && !start)
         {
             target_timer -= Time.deltaTime;
             if(!maxTargets(transform.position, 1f, max_targets) && target_timer <= 0)

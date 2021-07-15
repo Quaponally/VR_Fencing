@@ -18,11 +18,22 @@ public class GameOver : MonoBehaviour
     void Awake()
     {        
         score = scoreCounter.score;
-        GlobalControl.Instance.SaveScore(score);
-        highscore = GlobalControl.Instance.highscore;
-        
         scoreText.text = "Score: " + score.ToString();
-        HighscoreText.text = "Highscore: " + highscore.ToString();
+
+        //GlobalControl.Instance.SaveScore(score);
+        //highscore = GlobalControl.Instance.highscore;
+        highscore = PlayerPrefs.GetFloat("highscore", 0f);
+        if(score > highscore)
+        {
+            HighscoreText.text = "New Highscore!"; 
+            PlayerPrefs.SetFloat("highscore", score);
+            PlayerPrefs.Save();
+        }
+        else
+        {
+            HighscoreText.text = "Highscore: " + highscore.ToString();
+        }    
+        
     }
 
     public void PlayAgain()
