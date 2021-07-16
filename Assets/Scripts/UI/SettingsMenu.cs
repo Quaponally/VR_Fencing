@@ -11,9 +11,6 @@ public class SettingsMenu : MonoBehaviour
     void Awake()
     {
         // get current setting
-        //LungeMode = GlobalControl.Instance.LungeMode;
-        Debug.Log("Pre check SM: " + LungeMode.ToString());
-        Debug.Log(PlayerPrefs.GetString("lunge_enabled"));
         string stored_data = PlayerPrefs.GetString("lunge_enabled");
 
         if(stored_data == "true")
@@ -22,33 +19,24 @@ public class SettingsMenu : MonoBehaviour
         }
         else{
             LungeMode = false;
-            //LungeToggle.GetComponent<Toggle>().Select();
         }
 
         // set toggle to match
-        // changing this from code is also triggering function call to ToggleLungeMode
-        LungeToggle.GetComponent<Toggle>().isOn = LungeMode;
-        //LungeToggle.GetComponent<Toggle>().Invoke(true);
-        Debug.Log(PlayerPrefs.GetString("lunge_enabled"));
-        Debug.Log("Post check SM: " + LungeMode.ToString());
+        LungeToggle.GetComponent<Toggle>().SetIsOnWithoutNotify(LungeMode);
+        
 
     }
 
     public void ToggleLungeMode()
     {
-        //GlobalControl.Instance.ToggleLunge();
         if (LungeMode)
         {
-            //GlobalControl.Instance.LungeMode = false;
-            // write to file
             LungeMode = false;
             PlayerPrefs.SetString("lunge_enabled", "false");
             PlayerPrefs.Save();
         }
         else 
         {
-            //GlobalControl.Instance.LungeMode = true;
-            // write to file
             LungeMode = true;
             PlayerPrefs.SetString("lunge_enabled", "true");
             PlayerPrefs.Save();
