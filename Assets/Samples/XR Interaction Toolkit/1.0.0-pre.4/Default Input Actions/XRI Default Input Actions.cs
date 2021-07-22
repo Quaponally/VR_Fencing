@@ -167,6 +167,14 @@ public class @XRIDefaultInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause Game"",
+                    ""type"": ""Button"",
+                    ""id"": ""b4fa871a-a34b-4bb3-afaa-5f1dddec0e74"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -499,6 +507,61 @@ public class @XRIDefaultInputActions : IInputActionCollection, IDisposable
                     ""action"": ""Translate Anchor"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""433d5939-d334-4875-9e7b-20774658e758"",
+                    ""path"": ""<XRController>{LeftHand}/thumbstickClicked"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause Game"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""00c81fa5-6054-4043-ac5b-425686414bab"",
+                    ""path"": ""<OculusTouchController>{LeftHand}/thumbstickClicked"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause Game"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1fb1ede-1f70-48d3-92fd-0f507323cbb1"",
+                    ""path"": ""<OpenVROculusTouchController>{LeftHand}/thumbstickClicked"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause Game"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4ff68e99-fff9-42b1-8841-7b474bd03789"",
+                    ""path"": ""<ValveIndexController>{LeftHand}/thumbstickClicked"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause Game"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0c1bed74-ecae-4e5f-b783-7e6d8b161654"",
+                    ""path"": ""<ViveController>{LeftHand}/trackpadClicked"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause Game"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -941,17 +1004,6 @@ public class @XRIDefaultInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""4f38ce58-a2f3-4afa-bd50-e784200f97c7"",
-                    ""path"": ""<XRController>{RightHand}/home"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Generic XR Controller"",
-                    ""action"": ""Pause Game"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""ad475428-cfad-4edc-a016-cf005c024d85"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
@@ -965,17 +1017,6 @@ public class @XRIDefaultInputActions : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""51f02a8d-3d70-4c54-b205-1b0083f4a3e3"",
                     ""path"": ""<XRController>{RightHand}/thumbstickClicked"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Generic XR Controller"",
-                    ""action"": ""Pause Game"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""291d7a93-4568-4894-9695-df00f14e1292"",
-                    ""path"": ""<OculusTouchController>{RightHand}/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Generic XR Controller"",
@@ -1088,6 +1129,7 @@ public class @XRIDefaultInputActions : IInputActionCollection, IDisposable
         m_XRILeftHand_Move = m_XRILeftHand.FindAction("Move", throwIfNotFound: true);
         m_XRILeftHand_RotateAnchor = m_XRILeftHand.FindAction("Rotate Anchor", throwIfNotFound: true);
         m_XRILeftHand_TranslateAnchor = m_XRILeftHand.FindAction("Translate Anchor", throwIfNotFound: true);
+        m_XRILeftHand_PauseGame = m_XRILeftHand.FindAction("Pause Game", throwIfNotFound: true);
         // XRI RightHand
         m_XRIRightHand = asset.FindActionMap("XRI RightHand", throwIfNotFound: true);
         m_XRIRightHand_Position = m_XRIRightHand.FindAction("Position", throwIfNotFound: true);
@@ -1207,6 +1249,7 @@ public class @XRIDefaultInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_XRILeftHand_Move;
     private readonly InputAction m_XRILeftHand_RotateAnchor;
     private readonly InputAction m_XRILeftHand_TranslateAnchor;
+    private readonly InputAction m_XRILeftHand_PauseGame;
     public struct XRILeftHandActions
     {
         private @XRIDefaultInputActions m_Wrapper;
@@ -1224,6 +1267,7 @@ public class @XRIDefaultInputActions : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_XRILeftHand_Move;
         public InputAction @RotateAnchor => m_Wrapper.m_XRILeftHand_RotateAnchor;
         public InputAction @TranslateAnchor => m_Wrapper.m_XRILeftHand_TranslateAnchor;
+        public InputAction @PauseGame => m_Wrapper.m_XRILeftHand_PauseGame;
         public InputActionMap Get() { return m_Wrapper.m_XRILeftHand; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1272,6 +1316,9 @@ public class @XRIDefaultInputActions : IInputActionCollection, IDisposable
                 @TranslateAnchor.started -= m_Wrapper.m_XRILeftHandActionsCallbackInterface.OnTranslateAnchor;
                 @TranslateAnchor.performed -= m_Wrapper.m_XRILeftHandActionsCallbackInterface.OnTranslateAnchor;
                 @TranslateAnchor.canceled -= m_Wrapper.m_XRILeftHandActionsCallbackInterface.OnTranslateAnchor;
+                @PauseGame.started -= m_Wrapper.m_XRILeftHandActionsCallbackInterface.OnPauseGame;
+                @PauseGame.performed -= m_Wrapper.m_XRILeftHandActionsCallbackInterface.OnPauseGame;
+                @PauseGame.canceled -= m_Wrapper.m_XRILeftHandActionsCallbackInterface.OnPauseGame;
             }
             m_Wrapper.m_XRILeftHandActionsCallbackInterface = instance;
             if (instance != null)
@@ -1315,6 +1362,9 @@ public class @XRIDefaultInputActions : IInputActionCollection, IDisposable
                 @TranslateAnchor.started += instance.OnTranslateAnchor;
                 @TranslateAnchor.performed += instance.OnTranslateAnchor;
                 @TranslateAnchor.canceled += instance.OnTranslateAnchor;
+                @PauseGame.started += instance.OnPauseGame;
+                @PauseGame.performed += instance.OnPauseGame;
+                @PauseGame.canceled += instance.OnPauseGame;
             }
         }
     }
@@ -1503,6 +1553,7 @@ public class @XRIDefaultInputActions : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnRotateAnchor(InputAction.CallbackContext context);
         void OnTranslateAnchor(InputAction.CallbackContext context);
+        void OnPauseGame(InputAction.CallbackContext context);
     }
     public interface IXRIRightHandActions
     {

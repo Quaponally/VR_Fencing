@@ -154,6 +154,14 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Pause Game",
+                    "type": "Button",
+                    "id": "b4fa871a-a34b-4bb3-afaa-5f1dddec0e74",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -486,6 +494,61 @@
                     "action": "Translate Anchor",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "433d5939-d334-4875-9e7b-20774658e758",
+                    "path": "<XRController>{LeftHand}/thumbstickClicked",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause Game",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "00c81fa5-6054-4043-ac5b-425686414bab",
+                    "path": "<OculusTouchController>{LeftHand}/thumbstickClicked",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause Game",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b1fb1ede-1f70-48d3-92fd-0f507323cbb1",
+                    "path": "<OpenVROculusTouchController>{LeftHand}/thumbstickClicked",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause Game",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4ff68e99-fff9-42b1-8841-7b474bd03789",
+                    "path": "<ValveIndexController>{LeftHand}/thumbstickClicked",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause Game",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0c1bed74-ecae-4e5f-b783-7e6d8b161654",
+                    "path": "<ViveController>{LeftHand}/trackpadClicked",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause Game",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -928,17 +991,6 @@
                 },
                 {
                     "name": "",
-                    "id": "4f38ce58-a2f3-4afa-bd50-e784200f97c7",
-                    "path": "<XRController>{RightHand}/home",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Generic XR Controller",
-                    "action": "Pause Game",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "ad475428-cfad-4edc-a016-cf005c024d85",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
@@ -952,17 +1004,6 @@
                     "name": "",
                     "id": "51f02a8d-3d70-4c54-b205-1b0083f4a3e3",
                     "path": "<XRController>{RightHand}/thumbstickClicked",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Generic XR Controller",
-                    "action": "Pause Game",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "291d7a93-4568-4894-9695-df00f14e1292",
-                    "path": "<OculusTouchController>{RightHand}/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
