@@ -945,7 +945,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1421555659}
-  pauseReference: {fileID: 3513439392709803870, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  RightPause: {fileID: 3513439392709803870, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  LeftPause: {fileID: 7555753902855389075, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!114 &809675418
 MonoBehaviour:
   m_ObjectHideFlags: 0

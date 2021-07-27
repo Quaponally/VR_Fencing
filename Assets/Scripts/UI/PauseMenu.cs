@@ -12,12 +12,14 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
 
     // public ActionBasedController controller;
-    public InputActionReference pauseReference = null;
+    public InputActionReference RightPause = null;
+    public InputActionReference LeftPause = null;
 
     void Start()
     {
         // controller = GetComponent<ActionBasedController>();
-        pauseReference.action.started += context => pauseButton();
+        RightPause.action.started += context => pauseButton();
+        LeftPause.action.started += context => pauseButton();
     }
 
     // Update is called once per frame
