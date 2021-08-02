@@ -48,9 +48,7 @@ GameObject:
   - component: {fileID: 1156953745595773285}
   - component: {fileID: 1156953745595773281}
   - component: {fileID: 1156953745595773280}
-  - component: {fileID: 1156953745595773295}
   - component: {fileID: 1371194150}
-  - component: {fileID: 1371194149}
   m_Layer: 0
   m_Name: RightHand Controller
   m_TagString: Untagged
@@ -238,9 +236,9 @@ MonoBehaviour:
   m_AudioClipForOnHoverExited: {fileID: 0}
   m_PlayAudioClipOnHoverCanceled: 0
   m_AudioClipForOnHoverCanceled: {fileID: 0}
-  m_PlayHapticsOnSelectEntered: 0
+  m_PlayHapticsOnSelectEntered: 1
   m_HapticSelectEnterIntensity: 0.488
-  m_HapticSelectEnterDuration: 0.5
+  m_HapticSelectEnterDuration: 0.2
   m_PlayHapticsOnSelectExited: 0
   m_HapticSelectExitIntensity: 0
   m_HapticSelectExitDuration: 0
@@ -522,18 +520,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1156953745595773295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1156953745595773287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3be6e98d457cf5f45bae81d745e71ffd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &1371194150
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -548,18 +534,6 @@ CapsuleCollider:
   m_Height: 0.4672718
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0.35}
---- !u!114 &1371194149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1156953745595773287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb576a7f7453b6545a1a7d906b7db446, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1156953745638471896
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,8 +549,6 @@ GameObject:
   - component: {fileID: 1156953745638471910}
   - component: {fileID: 6140549874302317852}
   - component: {fileID: 1846316251604213107}
-  - component: {fileID: 8510276324829563732}
-  - component: {fileID: 51559355210594903}
   - component: {fileID: 4538736422744014470}
   m_Layer: 0
   m_Name: LeftHand Controller
@@ -725,7 +697,7 @@ MonoBehaviour:
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 1156953745638471911}
   m_StartingSelectedInteractable: {fileID: 0}
   m_HoverEntered:
     m_PersistentCalls:
@@ -767,7 +739,7 @@ MonoBehaviour:
   m_AudioClipForOnHoverCanceled: {fileID: 0}
   m_PlayHapticsOnSelectEntered: 1
   m_HapticSelectEnterIntensity: 0.482
-  m_HapticSelectEnterDuration: 0.5
+  m_HapticSelectEnterDuration: 0.2
   m_PlayHapticsOnSelectExited: 0
   m_HapticSelectExitIntensity: 0
   m_HapticSelectExitDuration: 0
@@ -775,7 +747,7 @@ MonoBehaviour:
   m_HapticSelectCancelIntensity: 0
   m_HapticSelectCancelDuration: 0
   m_PlayHapticsOnHoverEntered: 1
-  m_HapticHoverEnterIntensity: 0.846
+  m_HapticHoverEnterIntensity: 0.489
   m_HapticHoverEnterDuration: 0.2
   m_PlayHapticsOnHoverExited: 0
   m_HapticHoverExitIntensity: 0
@@ -785,7 +757,7 @@ MonoBehaviour:
   m_HapticHoverCancelDuration: 0
   m_LineType: 0
   m_BlendVisualLinePoints: 1
-  m_MaxRaycastDistance: 30
+  m_MaxRaycastDistance: 2
   m_ReferenceFrame: {fileID: 0}
   m_Velocity: 16
   m_Acceleration: 9.8
@@ -800,10 +772,10 @@ MonoBehaviour:
   m_SphereCastRadius: 0.1
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 32
   m_RaycastTriggerInteraction: 2
   m_HitClosestOnly: 0
-  m_KeepSelectedTargetValid: 1
+  m_KeepSelectedTargetValid: 0
   m_HoverToSelect: 0
   m_HoverTimeToSelect: 0.5
   m_EnableUIInteraction: 1
@@ -1049,30 +1021,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8510276324829563732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1156953745638471896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3be6e98d457cf5f45bae81d745e71ffd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &51559355210594903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1156953745638471896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb576a7f7453b6545a1a7d906b7db446, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &4538736422744014470
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1166,7 +1114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371a863c002356c44a77a27e40fa7953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RightActive: 1
+  RightActive: 0
   RightActivate: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   LeftActivate: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   RightController: {fileID: 1156953745595773287}
@@ -1324,8 +1272,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0

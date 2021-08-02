@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class ControllerSwitch : MonoBehaviour
 {
-    public bool RightActive = true;
+    public bool RightActive = false;
     public InputActionReference RightActivate = null;
     public InputActionReference LeftActivate = null;
     public GameObject RightController;
@@ -15,9 +15,21 @@ public class ControllerSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // 
+        // add functions to controller actions
         RightActivate.action.started += context => SwitchRight();
         LeftActivate.action.started += context => SwitchLeft();
+
+        // get current setting
+        string stored_data = PlayerPrefs.GetString("RightActive");
+        if(stored_data == "true")
+        {
+            SwitchRight();
+        }
+        else 
+        {
+            SwitchLeft();
+        }
+        
         
     }
 
@@ -36,6 +48,8 @@ public class ControllerSwitch : MonoBehaviour
             // activate right
             RightController.SetActive(true);
             RightActive = true;
+            PlayerPrefs.SetString("RightActive", "true");
+            PlayerPrefs.Save();
         }
     }
 
@@ -48,6 +62,8 @@ public class ControllerSwitch : MonoBehaviour
             // activate left
             LeftController.SetActive(true);
             RightActive = false;
+            PlayerPrefs.SetString("RightActive", "false");
+            PlayerPrefs.Save();
         }
     }
 }
